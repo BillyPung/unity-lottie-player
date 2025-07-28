@@ -39,6 +39,10 @@ namespace Gilzoide.LottiePlayer
             {
                 Play();
             }
+            else {
+                Play();
+                Pause();
+            }
         }
 
         protected override void Start()
@@ -133,6 +137,12 @@ namespace Gilzoide.LottiePlayer
             {
                 _playCoroutine = StartCoroutine(PlayRoutine());
             }
+        }
+
+        public void Stop()
+        {
+            Play();
+            Pause();
         }
 
         protected IEnumerator PlayRoutine()
