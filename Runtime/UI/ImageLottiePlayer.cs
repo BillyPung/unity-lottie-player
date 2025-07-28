@@ -40,8 +40,7 @@ namespace Gilzoide.LottiePlayer
                 Play();
             }
             else {
-                Play();
-                Pause();
+                StartCoroutine(Init());
             }
         }
 
@@ -66,6 +65,13 @@ namespace Gilzoide.LottiePlayer
             DestroyImmediate(_texture);
             _animation.Dispose();
             base.OnDestroy();
+        }
+
+        private IEnumerator Init()
+        {
+            Play();
+            yield return new WaitForEndOfFrame();
+            Pause();
         }
 
         protected override void OnPopulateMesh(VertexHelper vh)
