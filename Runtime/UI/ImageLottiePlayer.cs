@@ -67,7 +67,12 @@ namespace Gilzoide.LottiePlayer
             base.OnDestroy();
         }
 
-        public IEnumerator Init()
+        public void Reset()
+        {
+            StartCoroutine(Init());
+        }
+        
+        private IEnumerator Init()
         {
             Play();
             yield return new WaitForEndOfFrame();
